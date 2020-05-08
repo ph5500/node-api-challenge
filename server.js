@@ -1,6 +1,7 @@
 const express = require('express');
 
 //need to add actionRouter 
+const actionRouter = require('./data/helpers/actionRouter');
 //need to add projectRouter
 const projectRouter = require('./data/helpers/projectRouter');
 
@@ -8,7 +9,7 @@ const server = express();
 
 server.use(express.json());
 
-// server.use('/api/actions', logger, actionRouter);
+server.use('/api/actions', logger, actionRouter);
 server.use('/api/projects', logger, projectRouter)
 
 server.get('/', logger, (req, res) => {
